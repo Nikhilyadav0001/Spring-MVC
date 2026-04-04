@@ -9,6 +9,7 @@ video/
 target/
 bin/
 *.class
+*.gitignore
 
 *.log
 *.tmp
