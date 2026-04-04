@@ -2,6 +2,7 @@ package nikhil.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -23,12 +24,15 @@ public class WelcomeController {
 	 * 
 	 */
 	//@RequestMapping(value = "/",method = RequestMethod.GET)
+	//you can go for any of these for data map,model,modelmap they all uses BindingawareModelMap,so as good programing practice is go for model
 	@GetMapping(value="/")
-	public String welcomeMsg(Model model) {
-		System.out.println("Implementation class is :: "+model.getClass().getName());
+	public String welcomeMsg(Model model,ModelMap map) {
+		System.out.println("Model Implementation class is :: "+model.getClass().getName());
+		System.out.println("Model map Implementation class is :: "+map.getClass().getName());
 		System.out.println("RQ :: WelcomeController.welcomeMsg()");
 		
 		model.addAttribute("BRAND", "Nikhil's");
+		map.put("BR", "Nik's");
 		
 		return "welcomepage";
 	}

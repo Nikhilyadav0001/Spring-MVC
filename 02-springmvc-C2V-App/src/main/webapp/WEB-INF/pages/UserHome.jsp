@@ -7,8 +7,10 @@
 <title>Output</title>
 </head>
 <body>
-	<h1>Welcome to SpringBoot(MVC)
-	[Controller + View(JSP)] FROM :: ${BRAND},${BR}</h1>
-
+<h1>User Details</h1>
+	<p>
+		USER-NAME is :: ${NAME}<br>
+		TEAM-NAME is :: ${IPLTEAM}
+	</p>
 </body>
 </html>
