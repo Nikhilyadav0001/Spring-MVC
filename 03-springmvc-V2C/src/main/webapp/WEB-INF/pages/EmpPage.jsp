@@ -16,5 +16,7 @@
 	<p>ID     is :: ${obj.empId}</p>
 	<p>NAME   is :: ${obj.empName}</p>
 	<p>SALARY is :: ${obj.empSal}</p>
+	
+	
 </body>
 </html>
