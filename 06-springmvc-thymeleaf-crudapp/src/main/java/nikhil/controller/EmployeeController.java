@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import nikhil.model.Employee;
 import nikhil.service.IEmployeeService;
@@ -68,7 +69,6 @@ public class EmployeeController {
 		return "employee/list-employees";
 	}
 	
-}
 	
 	/****
 	 * 	Delete the Employee based on id
@@ -79,7 +79,15 @@ public class EmployeeController {
 	 *  5. INPUT  : ID @RequestParam
 	 */
 	
-	
+	@PostMapping("/delete")
+	public String deleteEmployee(
+			@RequestParam("empId")
+			Integer eid
+			) {
+		service.deleteRecord(eid);
+		
+		return "redirect:/employee/list";
+	}
 	
 	/****
 	 * 				Display the Employee Data on a form based on id
@@ -90,5 +98,17 @@ public class EmployeeController {
 	 *  5. INPUT  : Model, ID @RequestParam
 	 */
 	
+	@PostMapping(value="/showFormForUpdate")
+	public String updateForm(
+			@RequestParam("empId") 
+			Integer eid,Model model) {
+		
+		//get the employee
+		Employee employee=service.findEmployee(eid);
+		
+		model.addAttribute("employee",employee);
+		
+		return "employee/EmployeeForm";
+	}
 	
-	
+}

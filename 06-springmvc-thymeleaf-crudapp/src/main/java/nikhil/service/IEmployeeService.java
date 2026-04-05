@@ -7,10 +7,16 @@ import nikhil.model.Employee;
 public interface IEmployeeService {
 
 	
-	//save the record
-	void saveRecord(Employee employee);
+	//save the Employee
+	public void saveRecord(Employee employee);
 	
-	//display the records
-	List<Employee> displayAllRecord();
+	//get employee list
+	public List<Employee> displayAllRecord();
+	
+	//delete record
+	public void deleteRecord(Integer id);
+	
+	//get employee
+	public Employee findEmployee(Integer id);
 	
 }
